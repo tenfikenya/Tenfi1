@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TENFI</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            border: 2px solid #d4af37;
+            width: 400px;
+            text-align: center;
+        }
+        .title {
+            color: #d4af37;
+            font-weight: bold;
+            font-size: 28px;
+            line-height: 1;
+        }
+        .form-section {
+            display: none;
+        }
+        .form-section.active {
+            display: block;
+        }
+        label {
+            font-weight: bold;
+            display: block;
+            margin-top: 10px;
+            color: blue;
+        }
+        h3 {
+            color: green;
+            margin: 10px 0;
+        }
+        input, select {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        button {
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .next-btn {
+            background-color: #28a745;
+            color: white;
+        }
+        .prev-btn {
+            background-color: #dc3545;
+            color: white;
+        }
+        .submit-btn {
+            background-color: #007bff;
+            color: white;
+        }
+        .note {
+            margin-top: 15px;
+            font-size: 14px;
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2 class="title">TENFI</h2>
+
+        <!-- Selection Form -->
+        <div id="selectionForm">
+            <h3>Are you looking to sell or buy a business?</h3>
+            <button onclick="showForm('sellerForm')">Sell a Business</button>
+            <button onclick="showForm('buyerForm')">Buy a Business</button>
+        </div>
+
+        <!-- Seller Form -->
+        <form id="sellerForm" class="form-section" action="https://formsubmit.co/tenfikenya@gmail.com" method="POST">
+            <input type="hidden" name="_subject" value="New Business Sale Submission">
+            <input type="hidden" name="_captcha" value="false">
+
+            <h3>Seller Information</h3>
+            <label>Full Name:</label>
+            <input type="text" name="Seller Name" required>
+
+            <label>Phone Number:</label>
+            <input type="tel" name="Phone Number" required>
+
+            <label>Email Address:</label>
+            <input type="email" name="Email Address" required>
+
+            <h3>Business Information</h3>
+            <label>Business Name:</label>
+            <input type="text" name="Business Name" required>
+
+            <label>Industry:</label>
+            <input type="text" name="Industry" required>
+
+            <label>Business Location:</label>
+            <input type="text" name="Business Location" required>
+
+            <label>Year Established:</label>
+            <input type="number" name="Year Established" required>
+
+            <h3>Financial Information</h3>
+            <label>Asking Price:</label>
+            <input type="number" name="Asking Price" required>
+
+            <div class="note">
+                <strong>Note:</strong> A commitment fee of <strong>KES 500</strong> is required.  
+                A commission of <strong>5% of the sale value</strong> applies if we find a buyer.  
+            </div>
+
+            <button type="submit" class="submit-btn">Submit</button>
+        </form>
+
+        <!-- Buyer Form -->
+        <form id="buyerForm" class="form-section" action="https://formsubmit.co/tenfikenya@gmail.com" method="POST">
+            <input type="hidden" name="_subject" value="New Business Buyer Inquiry">
+            <input type="hidden" name="_captcha" value="false">
+
+            <h3>Buyer Information</h3>
+            <label>Full Name:</label>
+            <input type="text" name="Buyer Name" required>
+
+            <label>Phone Number:</label>
+            <input type="tel" name="Phone Number" required>
+
+            <label>Email Address:</label>
+            <input type="email" name="Email Address" required>
+
+            <h3>Business Preferences</h3>
+            <label>Preferred Industry:</label>
+            <input type="text" name="Preferred Industry">
+
+            <label>Preferred Location:</label>
+            <input type="text" name="Preferred Location">
+
+            <label>Business Size Preference:</label>
+            <select name="Business Size">
+                <option value="Small">Small</option>
+                <option value="Medium">Medium</option>
+                <option value="Large">Large</option>
+            </select>
+
+            <label>Budget Range:</label>
+            <input type="text" name="Budget Range">
+
+            <div class="note">
+                <strong>Note:</strong> A commitment fee of <strong>KES 500</strong> is required.  
+            </div>
+
+            <button type="submit" class="submit-btn">Submit</button>
+        </form>
+    </div>
+
+<script>
+function showForm(formId) {
+    document.getElementById("selectionForm").style.display = "none";
+    
+    if (formId === "sellerForm") {
+        document.getElementById("sellerForm").style.display = "block";
+        document.getElementById("buyerForm").style.display = "none";
+    } else {
+        document.getElementById("buyerForm").style.display = "block";
+        document.getElementById("sellerForm").style.display = "none";
+    }
+}
+</script>
+
+</body>
+</html>
